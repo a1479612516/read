@@ -1,0 +1,433 @@
+$sc:25;
+*{
+    padding: 0;
+    margin: 0;
+}
+input{
+    outline: none;
+}
+@mixin dlbtn{
+           display: block;
+           width: 100%;
+           height: 40/$sc+rem;
+           border-radius: 100/$sc+rem;
+           background: #ffcccc;
+           font-size: 15/$sc+rem;
+           text-align: center;
+           line-height: 40/$sc+rem;
+           color: white;
+           margin-top: 20/$sc+rem;
+}
+ul{
+    list-style: none;
+}
+%bs{
+    height: 22/$sc+rem;
+    line-height: 22/$sc+rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+html{
+    width: 100%;
+    height: 100%;
+    body{
+        @extend html;
+        background: #f4f4f4;
+    }
+}
+.book1{
+    @extend html;
+    header{
+        width: 100%;
+        height: 44$sc+rem;
+        font-size: 15/$sc+rem;
+        line-height: 44/$sc+rem;
+    }
+}
+
+.bs_btn{
+    padding: 20/$sc+rem;
+    width: 100%;
+    height: 66/$sc+rem;
+    box-sizing: border-box;
+    background: white;
+    border-bottom: 1/$sc+rem solid #ccc;
+    ul{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        li{
+            width: 100/$sc+rem;
+            height: 100%;
+            font-size: 15/$sc+rem;
+            background: #ed424b;
+            text-align: center;
+            line-height: 26/$sc+rem;
+            color: white;
+            border-radius: 8/$sc+rem;
+            a{
+                color: #fff;
+            }
+        }
+    }
+}
+.menu{
+    width: 100%;
+    height: 47/$sc+rem;
+    padding: 12/$sc+rem;
+    display: block;
+    box-sizing: border-box;
+    border-bottom: 1/$sc+rem solid #ccc;
+    background: white;
+    line-height: 20/$sc+rem;
+    strong{
+        font-size: 20/$sc+rem;
+        display: block;
+        float: left;
+    }
+    div{
+        font-size: 12/$sc+rem;
+        width: 180/$sc+rem;
+        float: right;
+        text-align: right;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+.bookt{
+    margin-top: 10/$sc+rem;
+    width: 100%;
+    background: white;
+     .bookt_t{
+        width: 100%;
+        height: 44/$sc+rem;
+        & h3{
+            font-size: 15/$sc+rem!important;
+            margin-left: 10/$sc+rem;
+            line-height: 44/$sc+rem;
+        }
+        
+    }
+    .bookt_m{
+        width: 100%;
+        height: 550/$sc+rem;
+        overflow: hidden;
+        ul{
+            height: 100%;
+            width: 100%;
+            li{
+               width: 100%;
+               height: 20%;
+             
+               a{
+                   padding: 20/$sc+rem;
+                   display: block;
+                   width: 100%;
+                   height: 100%;
+                   display: flex;
+                   box-sizing: border-box;
+                   div:nth-child(1){
+                       flex: 2;
+                       float: left;
+                       position: relative;
+                      img{
+                       position: absolute;
+                       left: 50%;
+                       transform: translate(-50%);
+                       width: 42/$sc+rem!important;
+                       height: 42/$sc+rem!important;
+                       border-radius: 50%;
+                    } 
+                   }
+                   
+                   div:nth-child(2){
+                       flex:8;
+                       float: left;
+                       margin-left: 5/$sc+rem;
+                       font-size: 15/$sc+rem;
+                       display: flex;
+                       flex-direction: column;
+                       justify-content: space-around;
+                      p:nth-child(1){
+                           color: #ccc;
+                       }
+                       p:nth-child(2){
+                            width: 264/$sc+rem;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            white-space: nowrap; 
+                       }
+                       p:nth-child(3){
+                           color: #ccc;
+                       }
+                   }
+               }
+            }
+        }
+    }
+    .bookt_b{
+        display: block;
+        text-align: center;
+        line-height: 45/$sc+rem;
+        width: 100%;
+        height: 45/$sc+rem;
+        font-size: 15/$sc+rem;
+        color: skyblue;
+    }
+}
+.catalog{
+    @extend html;
+    header{
+        width: 100%;
+        height: 44/$sc+rem;
+        background: black;
+        color: white;
+        display: flex;
+        font-size: 15/$sc+rem;
+        line-height: 44/$sc+rem;
+        a span{
+            margin-left: 15/$sc+rem;
+            color: white;
+        }
+        div:nth-child(2){
+            flex: 6;
+            text-align: center;
+            span:nth-child(1){
+                font-size: 20/$sc+rem;
+            }
+        }
+        div:nth-child(3){
+            flex: 2;
+        }
+    }
+    .sel{
+        select{
+            width: 100%;
+            height: 32/$sc+rem;
+        }
+    }
+    .catali{
+        width: 100%;
+        height: 100%;
+        ul{
+            width: 100%;
+            height: 100%;
+            li{
+                width: 100%;
+                height: 40/$sc+rem;
+                a{
+                    display: block;
+                    width: 100%;
+                    height: 100%; 
+                    font-size: 15/$sc+rem;
+                    line-height: 40/$sc+rem;               
+                  }
+            }
+        }
+    }
+}
+
+.bookstore{
+    @extend html;
+    font-size: 15/$sc+rem;
+    background: white;
+    header{
+        width: 100%;
+        height: 40/$sc+rem;
+        line-height: 40/$sc+rem;
+        border-bottom: 1/$sc+rem solid #F4F4F4;
+        a{
+            margin-left: 10/$sc+rem;
+        }
+        span{
+            margin-left: 120/$sc+rem;
+        }
+    }
+    section{
+        width: 100%;
+        ul{
+           width: 100%;
+           li{
+               width: 100%;
+               height: 100/$sc+rem;
+               padding: 20/$sc+rem;
+               box-sizing: border-box;
+               display: flex;
+               border-bottom: 1/$sc+rem solid #f4f4f4;
+               img{
+                   flex:1;
+                   height: 100%;
+               }
+               div{
+                   margin-left: 10/$sc+rem;
+                   flex: 7;
+                   height: 100%;
+               }
+           } 
+        }
+    }
+}
+.dl{
+   @extend html;
+   background: white;
+   .dl_logo{
+       width: 100%;
+       height: 166/$sc+rem;
+       position: relative;
+       div{
+           position: absolute;
+           left: 50%;
+           top: 50%;
+           transform: translate(-50%);
+       }
+   }
+   .dl_m{
+       width: 100%;
+       >div{
+           width: 325/$sc+rem;
+           margin: 0 auto;
+           div{
+              width: 100%;
+              height: 40/$sc+rem;
+              display: flex;
+              background: #f4f4f4;
+              span{
+                  flex:1;
+                  height: 100%;
+              } 
+              input{
+                  flex: 7;
+                  height: 100%;
+                  vertical-align: middle;
+                  border: none;
+                  background: #f4f4f4;
+              } 
+           }
+           div:nth-child(2){
+               margin-top: 10/$sc+rem;
+           }
+           >p{
+               font-size: 15/$sc+rem;
+               color: red;
+           }
+       }
+       .dl_btn{
+          @include dlbtn
+       }
+       .dl_p{
+           @include dlbtn
+       }
+   }
+   
+}
+.zc{
+    @extend html;
+    background: white;
+    header{
+        width: 100%;
+        height: 40/$sc+rem;
+        font-size: 15/$sc+rem;
+        line-height: 40/$sc+rem;
+        border-bottom: 1/$sc+rem solid #ccc;
+        a{
+            width: 40/$sc+rem;
+            height: 100%;
+            display: block;
+            text-align: center;
+            float: left;
+        }
+        
+    }
+    .zc_m{
+        width: 100%;
+       & >div{
+           margin: 50/$sc+rem auto;
+           width: 327/$sc+rem;
+           box-sizing: border-box;
+           p{
+               color: red;
+               font-size: 12/$sc+rem;
+               height: 20/$sc+rem;
+           }
+           div{
+               width: 100%;
+               height: 40/$sc+rem;
+               background: #f4f4f4;
+               display: flex;
+               
+               span{
+                   flex: 1;
+                    font-size: 12/$sc+rem;
+                    line-height: 40/$sc+rem;
+                    padding-left: 10/$sc+rem;
+               }
+               input{
+                   flex: 7;
+                   border: none;
+                   background: #F4F4F4;
+                  
+               }
+           }
+        }
+        label{
+            display: block;
+            width: 100%;
+            height: 40/$sc+rem;
+            display: flex;
+            background: #f4f4f4;
+            margin-top: 10/$sc+rem;
+            input{
+                flex: 6;
+                border: none;
+                background: #f4f4f4;
+            }
+            span{
+                flex:2
+            }
+            span:nth-child(2){
+                background: papayawhip;
+                text-align: center;
+                font-size: 15/$sc+rem;
+                line-height: 40/$sc+rem;
+            }
+        }
+        .zc_btn{
+            @include dlbtn
+        }
+    }
+}
+.user{
+    display: inline-block;
+    div{
+        position: relative;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      img{
+            width: 30%;
+            vertical-align: middle;
+        }
+        ul{
+            position: absolute;
+            width: 100%;
+            background: #fff;
+            left: 0;
+            top: 35/$sc+rem;
+            z-index: 99;
+            li{
+                a{
+                    font-size: 12/$sc+rem; 
+                }
+               
+            }
+        }
+       
+    }
+}
+.header{
+        padding: 10px;
+        background: #fff;
+       
+    }

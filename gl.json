@@ -1,0 +1,4 @@
+{
+	"glpic":["url(./src/assets/pic1_02.jpg)","url(./src/assets/1.png)","url(./src/assets/2.png)"],
+	"gltj":{"0":["./src/assets/pic2_05.jpg","购了推荐"],"1":["./src/assets/pic3_07.jpg","热购推荐"],"2":["./src/assets/pic5_11.jpg","品牌商品"],"3":["./src/assets/pic5_11.jpg","购了社区"]}
+}

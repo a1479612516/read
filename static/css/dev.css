@@ -1,0 +1,95 @@
+* { padding: 0; margin: 0; }
+
+input { outline: none; }
+
+ul { list-style: none; }
+
+a { text-decoration: none; color: black; }
+
+html, html body, .book1, .catalog, .bookstore, .dl, .zc { width: 100%; height: 100%; }
+html body, .book1 body, .catalog body, .bookstore body, .dl body, .zc body { background: #f4f4f4; }
+
+.book1 header { width: 100%; height: 44 25rem; font-size: 0.6rem; line-height: 1.76rem; }
+
+.bs_btn { padding: 0.8rem; width: 100%; height: 2.64rem; box-sizing: border-box; background: white; border-bottom: 0.04rem solid #ccc; }
+.bs_btn ul { width: 100%; display: flex; justify-content: space-around; }
+.bs_btn ul li { width: 4rem; height: 100%; font-size: 0.6rem; background: #ed424b; text-align: center; line-height: 1.04rem; color: white; border-radius: 0.32rem; }
+.bs_btn ul li a { color: #fff; }
+
+.menu { width: 100%; height: 1.88rem; padding: 0.48rem; display: block; box-sizing: border-box; border-bottom: 0.04rem solid #ccc; background: white; line-height: 0.8rem; }
+.menu strong { font-size: 0.8rem; display: block; float: left; }
+.menu div { font-size: 0.48rem; width: 7.2rem; float: right; text-align: right; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+
+.bookt { margin-top: 0.4rem; width: 100%; background: white; }
+.bookt .bookt_t { width: 100%; height: 1.76rem; }
+.bookt .bookt_t h3 { font-size: 0.6rem !important; margin-left: 0.4rem; line-height: 1.76rem; }
+.bookt .bookt_m { width: 100%; height: 22rem; overflow: hidden; }
+.bookt .bookt_m ul { height: 100%; width: 100%; }
+.bookt .bookt_m ul li { width: 100%; height: 20%; }
+.bookt .bookt_m ul li a { padding: 0.8rem; display: block; width: 100%; height: 100%; display: flex; box-sizing: border-box; }
+.bookt .bookt_m ul li a div:nth-child(1) { flex: 2; float: left; position: relative; }
+.bookt .bookt_m ul li a div:nth-child(1) img { position: absolute; left: 50%; transform: translate(-50%); width: 1.68rem !important; height: 1.68rem !important; border-radius: 50%; }
+.bookt .bookt_m ul li a div:nth-child(2) { flex: 8; float: left; margin-left: 0.2rem; font-size: 0.6rem; display: flex; flex-direction: column; justify-content: space-around; }
+.bookt .bookt_m ul li a div:nth-child(2) p:nth-child(1) { color: #ccc; }
+.bookt .bookt_m ul li a div:nth-child(2) p:nth-child(2) { width: 10.56rem; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+.bookt .bookt_m ul li a div:nth-child(2) p:nth-child(3) { color: #ccc; }
+.bookt .bookt_b { display: block; text-align: center; line-height: 1.8rem; width: 100%; height: 1.8rem; font-size: 0.6rem; color: skyblue; }
+
+.catalog header { width: 100%; height: 1.76rem; background: black; color: white; display: flex; font-size: 0.6rem; line-height: 1.76rem; }
+.catalog header a span { margin-left: 0.6rem; color: white; }
+.catalog header div:nth-child(2) { flex: 6; text-align: center; }
+.catalog header div:nth-child(2) span:nth-child(1) { font-size: 0.8rem; }
+.catalog header div:nth-child(3) { flex: 2; }
+.catalog .sel select { width: 100%; height: 1.28rem; }
+.catalog .catali { width: 100%; height: 100%; }
+.catalog .catali ul { width: 100%; height: 100%; }
+.catalog .catali ul li { width: 100%; height: 1.6rem; }
+.catalog .catali ul li a { display: block; width: 100%; height: 100%; font-size: 0.6rem; line-height: 1.6rem; }
+
+.bookstore { font-size: 0.6rem; background: white; }
+.bookstore header { width: 100%; height: 1.6rem; line-height: 1.6rem; border-bottom: 0.04rem solid #F4F4F4; }
+.bookstore header a { margin-left: 0.4rem; }
+.bookstore header span { margin-left: 4.8rem; }
+.bookstore section { width: 100%; }
+.bookstore section ul { width: 100%; }
+.bookstore section ul li { width: 100%; height: 4rem; padding: 0.8rem; box-sizing: border-box; display: flex; border-bottom: 0.04rem solid #f4f4f4; }
+.bookstore section ul li img { flex: 1; height: 100%; }
+.bookstore section ul li div { margin-left: 0.4rem; flex: 7; height: 100%; }
+
+.dl { background: white; }
+.dl .dl_logo { width: 100%; height: 6.64rem; position: relative; }
+.dl .dl_logo div { position: absolute; left: 50%; top: 50%; transform: translate(-50%); }
+.dl .dl_m { width: 100%; }
+.dl .dl_m > div { width: 13rem; margin: 0 auto; }
+.dl .dl_m > div div { width: 100%; height: 1.6rem; display: flex; background: #f4f4f4; }
+.dl .dl_m > div div span { flex: 1; height: 100%; }
+.dl .dl_m > div div input { flex: 7; height: 100%; vertical-align: middle; border: none; background: #f4f4f4; }
+.dl .dl_m > div div:nth-child(2) { margin-top: 0.4rem; }
+.dl .dl_m > div > p { font-size: 0.6rem; color: red; }
+.dl .dl_m .dl_btn { display: block; width: 100%; height: 1.6rem; border-radius: 4rem; background: #ffcccc; font-size: 0.6rem; text-align: center; line-height: 1.6rem; color: white; margin-top: 0.8rem; }
+.dl .dl_m .dl_p { display: block; width: 100%; height: 1.6rem; border-radius: 4rem; background: #ffcccc; font-size: 0.6rem; text-align: center; line-height: 1.6rem; color: white; margin-top: 0.8rem; }
+
+.zc { background: white; }
+.zc header { width: 100%; height: 1.6rem; font-size: 0.6rem; line-height: 1.6rem; border-bottom: 0.04rem solid #ccc; }
+.zc header a { width: 1.6rem; height: 100%; display: block; text-align: center; float: left; }
+.zc .zc_m { width: 100%; }
+.zc .zc_m > div { margin: 2rem auto; width: 13.08rem; box-sizing: border-box; }
+.zc .zc_m > div p { color: red; font-size: 0.48rem; height: 0.8rem; }
+.zc .zc_m > div div { width: 100%; height: 1.6rem; background: #f4f4f4; display: flex; }
+.zc .zc_m > div div span { flex: 1; font-size: 0.48rem; line-height: 1.6rem; padding-left: 0.4rem; }
+.zc .zc_m > div div input { flex: 7; border: none; background: #F4F4F4; }
+.zc .zc_m label { display: block; width: 100%; height: 1.6rem; display: flex; background: #f4f4f4; margin-top: 0.4rem; }
+.zc .zc_m label input { flex: 6; border: none; background: #f4f4f4; }
+.zc .zc_m label span { flex: 2; }
+.zc .zc_m label span:nth-child(2) { background: papayawhip; text-align: center; font-size: 0.6rem; line-height: 1.6rem; }
+.zc .zc_m .zc_btn { display: block; width: 100%; height: 1.6rem; border-radius: 4rem; background: #ffcccc; font-size: 0.6rem; text-align: center; line-height: 1.6rem; color: white; margin-top: 0.8rem; }
+
+.user { display: inline-block; }
+.user div { position: relative; text-overflow: ellipsis; white-space: nowrap; }
+.user div img { width: 30%; vertical-align: middle; }
+.user div ul { position: absolute; width: 100%; background: #fff; left: 0; top: 1.4rem; z-index: 99; }
+.user div ul li a { font-size: 0.48rem; }
+
+.header { padding: 10px; background: #fff; }
+
+/*# sourceMappingURL=dev.css.map */

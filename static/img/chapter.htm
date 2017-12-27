@@ -1,0 +1,164 @@
+
+<!-- saved from url=(0071)https://m.zongheng.com/h5/ajax/chapter?bookId=562503&chapterId=31099098 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css" abt="234"></style><script>//console.log('a')
+</script><script>doAdblock();
+function doAdblock(){
+    (function() {
+        function A() {}
+        A.prototype = {
+            rules: {
+                'pps_pps': {
+                    'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/pps_flvplay_s\.swf/,
+                    'replace': 'http://swf.adtchrome.com/pps_20140420.swf'
+                },
+                '17173_in':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
+                },
+                '17173_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
+                },
+                '17173_live':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
+                },
+                '17173_live_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
+                }
+            },
+            _done: null,
+            get done() {
+                if(!this._done) {
+                    this._done = new Array();
+                }
+                return this._done;
+            },
+            addAnimations: function() {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+                document.getElementsByTagName('head')[0].appendChild(style);
+            },
+            animationsHandler: function(e) {
+                if(e.animationName === 'playerInserted') {
+                    this.replace(e.target);
+                }
+            },
+            replace: function(elem) {
+                if (/http:\/\/v.youku.com\/v_show\/.*/.test(window.location.href)){
+                    var tag = document.getElementById("playerBox").getAttribute("player")
+                    if (tag == "adt"){
+                        console.log("adt adv")
+                        return;
+                    }
+                }
+                if(this.done.indexOf(elem) != -1) return;
+                this.done.push(elem);
+                var player = elem.data || elem.src;
+                if(!player) return;
+                var i, find, replace = false;
+                for(i in this.rules) {
+                    find = this.rules[i]['find'];
+                    if(find.test(player)) {
+                        replace = this.rules[i]['replace'];
+                        if('function' === typeof this.rules[i]['preHandle']) {
+                            this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                        }else{
+                            this.reallyReplace.bind(this, elem, find, replace)();
+                        }
+                        break;
+                    }
+                }
+            },
+            reallyReplace: function(elem, find, replace) {
+                elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+                var b = elem.querySelector("param[name='movie']");
+                this.reloadPlugin(elem);
+            },
+            reloadPlugin: function(elem) {
+                var nextSibling = elem.nextSibling;
+                var parentNode = elem.parentNode;
+                parentNode.removeChild(elem);
+                var newElem = elem.cloneNode(true);
+                this.done.push(newElem);
+                if(nextSibling) {
+                    parentNode.insertBefore(newElem, nextSibling);
+                } else {
+                    parentNode.appendChild(newElem);
+                }
+            },
+            init: function() {
+                var handler = this.animationsHandler.bind(this);
+                document.body.addEventListener('webkitAnimationStart', handler, false);
+                document.body.addEventListener('msAnimationStart', handler, false);
+                document.body.addEventListener('oAnimationStart', handler, false);
+                document.body.addEventListener('animationstart', handler, false);
+                this.addAnimations();
+            }
+        };
+        new A().init();
+    })();
+}
+// 20140730
+(function cnbeta() {
+    if (document.URL.indexOf('cnbeta.com') >= 0) {
+        var elms = document.body.querySelectorAll("p>embed");
+        Array.prototype.forEach.call(elms, function(elm) {
+            elm.style.marginLeft = "0px";
+        });
+    }
+})();
+//baidu
+if(document.URL.indexOf('www.baidu.com') >= 0){
+    if(document && document.getElementsByTagName && document.getElementById && document.body){
+        var aa = function(){
+            var all = document.body.querySelectorAll("#content_left div,#content_left table");
+            for(var i = 0; i < all.length; i++){
+                if(/display:\s?(table|block)\s!important/.test(all[i].getAttribute("style"))){all[i].style.display= "none";all[i].style.visibility='hidden';}
+            }
+            all = document.body.querySelectorAll('.result.c-container[id="1"]');
+            //if(all.length == 1) return;
+            for(var i = 0; i < all.length; i++){
+                if(all[i].innerHTML && all[i].innerHTML.indexOf('广告')>-1){
+                    all[i].style.display= "none";all[i].style.visibility='hidden';
+                }
+            }
+        }
+        aa();
+        document.getElementById('wrapper_wrapper').addEventListener('DOMSubtreeModified',aa)
+    };
+}
+// 20140922
+(function kill_360() {
+    if (document.URL.indexOf('so.com') >= 0) {
+        document.getElementById("e_idea_pp").style.display = none;
+    }
+})();
+if (document.URL.indexOf("tv.sohu.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+if (document.URL.indexOf("56.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+if (document.URL.indexOf("iqiyi.com") >= 0){
+    if (document.cookie.indexOf("player_forcedType=h5_VOD")==-1){
+        document.cookie='player_forcedType=h5_VOD'
+        if(localStorage.reloadTime && Date.now() - parseInt(localStorage.reloadTime)<60000){
+            console.log('no reload')
+        }else{
+            location.reload()
+            localStorage.reloadTime = Date.now();
+        }
+    }
+}
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style></head><body cz-shortcut-listen="true">{"result":{"pageCount":3,"prevName":"正文_第一章约定","nextChapterName":"","nextChapterLevel":0,"isLevel":0,"chapterDelayRelease":false,"bookId":562503,"chapterName":"正文_第二章思茅宗","chapterNum":1,"nextChapterId":"31099098_2","content":"<p>第二章思茅宗思茅山，石奇松翠，峰高山远，仙迹迷离，千丈崖、万壑峰、斗仙台、沉云阁。方元千里，为我独尊！东面有紫云国、赖日国，南面有陈菲国、南海魔域，西面有天裕国，北面有天罡大陆。</p><p>步行要一天的路程王成只用了两个时辰，放走了雪狼王成向思茅山顶奔去。</p><p>转过几个山头，往上走了大约半个时辰，竟然积雪全无，松柏郁郁青青，空气稍有寒冷，但和王成来的地方却是两个世界。</p><p>突然从东南方向传来隐隐约约的说话声，声音稚嫩，似乎有两三个人。王成身形一闪躲到一颗树后，不过三息时间两男一女出现在眼前。</p><p>“飞烟！飞雨！我们得快一点，不然午时就赶不到沉云阁了！”</p><p>“都怪该死的段氏双雄，等我成了思茅弟子，非宰了这两个色魔不可。”后面说话的是个女孩，十二三岁的样子，面色粉润，身材高挑，长发白裙，宛若仙女。</p><p>王成心想这女孩肯定是叫“飞烟”了，另一个男孩子应该是叫做“飞雨”。</p><p>三个小孩中说话的男孩大约十五六岁，身穿一件青袍，叫飞雨的男孩虎头虎脑，却是黑色短服，十一二岁稚气未脱。三人快步往山顶奔去。</p><p>王成转身跟上，心想：正愁没有向导呢。</p><p>“飞云哥哥，听说，思茅弟子选拔异常严格，咱们这次能成功入选吗？”</p><p>“别再说话！赶路要紧，到时候再说！记住，随机应变！”男孩道。</p><p>“嘘！身后有人！”女孩使了个眼色。</p><p>转过又一个山头，眼前不见了三个孩子，但思茅山顶已经隐约看到，似乎有许多人头攒动。</p><p>突然身后一股寒气袭来，王成不动声色，身形一展飞出去一丈，然后转过身来。却见三个小孩眼露寒光，冷冷盯着自己。</p><p>“你是谁？为什么跟着我们！”</p><p>“呵呵！在下王成，和三位一样，上山参选。”</p><p>“原来如此，我姓卓！幸会！”看到王成并无恶意，青衣少年回道。</p><p>“可否同行？”</p><p>“走吧！”看到距离思茅山顶不远，王成又是老实敦厚的样子，青衣少年欣然同意。</p><p>王成眼睛看向白衣少女和短服男童，青袍少年道“这是我卓氏家族大小姐卓飞烟。”</p><p>白衣少女腼腆一笑，脸颊微红。</p><p>“这位是我族弟卓飞雨，我叫卓飞云！”</p><p>“幸会！”四人同时抱拳行礼。</p><p>“相逢是缘，希望我们四人都能入选思茅弟子！”说完仍不住多看了卓飞烟一眼。</p><p>“好！”大家异口同声，边说变行。一会儿工夫竟然熟人一般，嘻嘻哈哈，向山顶飞奔，速度竟然比前面快了很多。</p><p>走到一处狭窄地段，行人突然增多，都是少男少女。突然，一胖一瘦两个人影掠过差点把王成等人挤下悬崖。</p><p>“段氏双雄！”卓飞云叫到。</p><p>“找死吗？”两位紫衣少年已经飞出十几步，却转过身来，目露凶光盯着卓飞云。</p><p>“你二人三番两次为难与我，这次又</p><p>（本章未完，请翻页）</p>","message":"免费章节!","chapterId":"31099098","isLastPage":"0","readType":"free","iord":0,"prevId":"31099097_1","bookName":"青冥帝皇","isRead":0},"ajaxResult":{"message":"有数据","code":1}}</body></html>
